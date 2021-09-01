@@ -7,6 +7,8 @@ import styled from "styled-components";
 import { ReactComponent as Duck } from "assets/svg/duckdcukgo.svg";
 import TodoItem from "components/todo/TodoItem";
 
+const { getTodosRequest } = getTodos;
+
 interface IProps {}
 
 const TodoList: React.FC<IProps> = () => {
@@ -14,12 +16,12 @@ const TodoList: React.FC<IProps> = () => {
   const { todoList } = useSelector((state: RootState) => state.todos);
 
   useEffect(() => {
-    dispatch(getTodos());
+    dispatch(getTodosRequest());
   }, [dispatch]);
 
   return (
     <>
-      {todoList ? (
+      {todoList.length > 0 ? (
         <ListWrapper>
           <ul>
             {todoList.map((todo) => (
