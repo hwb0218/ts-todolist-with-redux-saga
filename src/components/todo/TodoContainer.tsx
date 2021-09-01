@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import Header from "./TodoHeader";
 import TodoList from "./TodoList";
-import TodoFooter from "./TodoFooter";
 import Modal from "components/common/Modal";
 import useTodo from "hooks/useTodo";
 
@@ -14,7 +13,6 @@ const TodoContainer: React.FC<IProps> = () => {
     <TodoWrapper>
       <Header />
       <TodoList />
-      <TodoFooter />
       <Modal />
     </TodoWrapper>
   );
