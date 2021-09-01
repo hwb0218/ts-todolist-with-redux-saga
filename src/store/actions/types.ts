@@ -4,3 +4,4 @@ export const TODOS_FETCH_FAILED = "todosFetchFailed" as const;
 export const ADD_TODOS = "addTodos" as const;
 export const SHOW_MODAL = "showModal" as const;
 export const HIDE_MODAL = "hideModal" as const;
+export const TOGGLE_CIRCLE = "toggleCircle" as const;

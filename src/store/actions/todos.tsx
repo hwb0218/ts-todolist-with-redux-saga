@@ -8,7 +8,6 @@ export const getTodos = () => {
 };
 
 export const getTodosSuccess = (todos: ITodos) => {
-  console.log(todos);
   return {
     type: TODOS_FETCH_SUCCEED,
     payload: todos,
@@ -28,6 +27,8 @@ export const addTodo = (todo: ITodo) => {
     payload: todo,
   };
 };
+
+export const toggleCircle = (id: string) => {};
 
 export type TodosAction =
   | ReturnType<typeof getTodos>

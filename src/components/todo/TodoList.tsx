@@ -2,32 +2,55 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { showModal } from "store/actions/modal";
 import { getTodos } from "store/actions/todos";
+import { RootState, AppDispatch } from "store";
 import styled from "styled-components";
 import { ReactComponent as Duck } from "assets/svg/duckdcukgo.svg";
-import { RootState } from "store";
+import TodoItem from "components/todo/TodoItem";
 
 interface IProps {}
 
 const TodoList: React.FC<IProps> = () => {
-  const dispatch = useDispatch();
-  const todos = useSelector((state: RootState) => state.todos);
-  console.log(todos);
+  const dispatch = useDispatch<AppDispatch>();
+  const { todoList } = useSelector((state: RootState) => state.todos);
+
   useEffect(() => {
     dispatch(getTodos());
   }, [dispatch]);
 
   return (
-    <TodoListWrapper>
-      <Duck />
-      <FirstTodo>Add your first ToDO</FirstTodo>
-      <AddTodoBtn onClick={() => dispatch(showModal())}>Add Now</AddTodoBtn>
-    </TodoListWrapper>
+    <>
+      {todoList ? (
+        <ListWrapper>
+          <ul>
+            {todoList.map((todo) => (
+              <TodoItem key={todo.id} {...todo}>
+                {todo.content}
+              </TodoItem>
+            ))}
+          </ul>
+        </ListWrapper>
+      ) : (
+        <EmptyListWrapper>
+          <Duck />
+          <FirstTodo>Add your first ToDO</FirstTodo>
+          <AddTodoBtn onClick={() => dispatch(showModal())}>Add Now</AddTodoBtn>
+        </EmptyListWrapper>
+      )}
+    </>
   );
 };
 
 export default TodoList;
 
-const TodoListWrapper = styled.div`
+const ListWrapper = styled.div`
+  flex: 1;
+  padding: 0px;
+  padding-bottom: 48px;
+  overflow-y: auto;
+  overflow-x: hidden;
+`;
+
+const EmptyListWrapper = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;

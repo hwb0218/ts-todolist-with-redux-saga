@@ -13,11 +13,12 @@ function* getTodosSaga() {
   }
 }
 
-function* watchGetTodos() {
-  yield takeLatest(TODOS_FETCH_REQUEST, getTodosSaga);
+function* addTodosSaga() {
+  // try {
+  // } catch (error: unknown) {
+  //   // yield put();
+  // }
 }
-
-function* addTodosSaga() {}
 
 function* editTodoSaga() {}
 
@@ -26,5 +27,5 @@ function* changeStatusSaga() {}
 function* removeTodoSaga() {}
 
 export function* todosSaga() {
-  yield all([fork(watchGetTodos)]);
+  yield takeLatest(TODOS_FETCH_REQUEST, getTodosSaga);
 }

@@ -77,7 +77,7 @@ const Icon = styled.div`
 
 const Input = styled.input`
   padding: 10px;
-  margin: 20px 0;
+  margin: 20px 0 30px 0;
   border: 1px solid #dddddd;
   border-radius: 3px;
   width: 100%;
