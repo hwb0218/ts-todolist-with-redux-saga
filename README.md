@@ -13,7 +13,7 @@ __`서버 주소를 이용하여 TODO list 구현 `__
 </br>
 
 ## 📌 기능구현
-1. TODO CRUD(조회, 추가, 삭제, 수정) 기능
+1. Todo list CRUD(조회, 추가, 삭제, 수정) 기능
 2. Postman을 활용한 mock server 생성, API 호출
 3. redux-saga 미들웨어 활용 및 비동기처리
 4. redux 전역 상태 관리
