@@ -1,5 +1,5 @@
 import { INITAIL_STATE } from "./constant";
-import { ITodos } from "components/types";
+import { ITodos } from "types";
 
 export const getLocalStorageItem = (key: string) => {
   const localStorageData = JSON.parse(localStorage.getItem(key)!) || INITAIL_STATE;
