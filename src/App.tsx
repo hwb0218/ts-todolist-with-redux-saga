@@ -1,14 +1,14 @@
 import React from "react";
 import GlobalStyles from "./styles/GlobalStyles";
-import TodoContainer from "components/TodoContainer";
+import TodoContainer from "components/todo/TodoContainer";
 
 interface IProps {}
 
-const App: React.FC<IProps> = ({}) => (
-  <div>
+const App: React.FC<IProps> = () => (
+  <>
     <GlobalStyles />
     <TodoContainer />
-  </div>
+  </>
 );
 
 export default App;

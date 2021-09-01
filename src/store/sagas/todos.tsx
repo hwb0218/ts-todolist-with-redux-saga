@@ -1,17 +1,20 @@
-import { delay, put, call, takeLatest, takeEvery } from "redux-saga/effects";
-import { getTodos, ITodos } from "api";
+import { all, put, call, takeLatest, fork } from "redux-saga/effects";
 import { getTodosSuccess, getTodosFail } from "store/actions/todos";
 import { TODOS_FETCH_REQUEST } from "store/actions/types";
+import { fetchTodos } from "api";
+import { ITodos } from "components/types";
 
 function* getTodosSaga() {
   try {
-    const todos: ITodos = yield call(getTodos);
+    const todos: ITodos = yield call(fetchTodos);
     yield put(getTodosSuccess(todos));
-  } catch (error) {
+  } catch (error: unknown) {
     yield put(getTodosFail(error));
-    console.log(typeof error);
-    console.log(error);
   }
+}
+
+function* watchGetTodos() {
+  yield takeLatest(TODOS_FETCH_REQUEST, getTodosSaga);
 }
 
 function* addTodosSaga() {}
@@ -23,5 +26,5 @@ function* changeStatusSaga() {}
 function* removeTodoSaga() {}
 
 export function* todosSaga() {
-  yield takeLatest(TODOS_FETCH_REQUEST, getTodosSaga);
+  yield all([fork(watchGetTodos)]);
 }

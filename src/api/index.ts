@@ -1,16 +1,6 @@
-export interface ITodos {
-  count: number;
-  todoList: ITodoList[];
-}
+import { ITodos } from "components/types";
 
-export interface ITodoList {
-  id: string;
-  content: string;
-  isCheck: boolean;
-  createdAt: Date;
-}
-
-export const getTodos = async (): Promise<ITodos> => {
+export const fetchTodos = async (): Promise<ITodos> => {
   const res = await fetch("/data/data.json");
   const data = await res.json();
   return data;

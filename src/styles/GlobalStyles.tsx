@@ -4,6 +4,14 @@ import reset from "styled-reset";
 const GlobalStyles = createGlobalStyle`
     ${reset};
     
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        background: #e2e2e2;
+    }
+
     @font-face {
     font-family: 'NanumSquareRound';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');

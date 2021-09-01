@@ -1,1 +1,1 @@
-{ "extends": ["react-app", "plugin:prettier/recommended"], "ignorePatterns": [".eslintrc"] }
+{ "extends": ["react-app", "plugin:prettier/recommended"] }

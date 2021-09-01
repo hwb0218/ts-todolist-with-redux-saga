@@ -1,12 +1,11 @@
 import { TODOS_FETCH_SUCCEED, TODOS_FETCH_FAILED } from "store/actions/types";
 import { TodosAction } from "store/actions/todos";
-
-const INITAIL_STATE = 0;
+import { INITAIL_STATE } from "utils/constant";
 
 const todosReducer = (state = INITAIL_STATE, action: TodosAction) => {
   switch (action.type) {
     case TODOS_FETCH_SUCCEED:
-      return {};
+      return action.payload;
     case TODOS_FETCH_FAILED:
       return {};
     default:
