@@ -5,6 +5,8 @@ const INITAIL_STATE = {
   isOpen: false,
 };
 
+// modal reducer 함수
+// action의 타입에 따른 상태 반환을 하기위한 reducer
 const modalReducer = (state = INITAIL_STATE, action: ModalAction) => {
   switch (action.type) {
     case SHOW_MODAL:

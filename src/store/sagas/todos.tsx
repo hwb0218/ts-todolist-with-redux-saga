@@ -23,6 +23,8 @@ const { toggleTodoCheckFail } = toggleTodoCheck;
 const { removeTodoFail } = removeTodo;
 const { editTodoFail } = editTodo;
 
+// worker saga는 watcher saga에서 action이 dispatch되면 실행한다.
+// put effect는 redux 스토어에 액션을 디스패치한다.
 function* getTodosSaga() {
   try {
     const todos: ITodos = yield call(fetchTodos);
@@ -32,6 +34,8 @@ function* getTodosSaga() {
   }
 }
 
+// call effect는 다른 saga들이나 promise등을 동기적으로 호출한다.
+// 때문에 응답이 오기전 다음 작업을 진행하지 않는다.
 function* addTodoSaga() {
   try {
     const res: IResponse = yield call(fetchAddTodo);
@@ -68,7 +72,9 @@ function* EditTodoSaga() {
   }
 }
 
-export function* todosSaga() {
+// dispatch된 action을 바라보고 있는 watcher saga
+// takeLatest의 경우 여러개의 action들이 동시에 트리거될 경우 마지막 action만 처리한다.
+export function* watchTodosSaga() {
   yield takeLatest(TODOS_FETCH_REQUEST, getTodosSaga);
   yield takeLatest(ADD_TODO_SUCCEED, addTodoSaga);
   yield takeLatest(TOGGLE_TODO_CHECK_SUCCEED, toggleTodoCheckSaga);

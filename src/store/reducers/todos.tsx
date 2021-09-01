@@ -13,6 +13,8 @@ import {
 import { TodosAction } from "store/actions/todos";
 import { INITAIL_STATE } from "utils/constant";
 
+// todos reducer 함수
+// action의 타입에 따른 상태 반환을 하기위한 reducer
 const todosReducer = (state = INITAIL_STATE, action: TodosAction) => {
   switch (action.type) {
     case TODOS_FETCH_SUCCEED:
