@@ -1,12 +1,19 @@
-import React, { useEffect, useCallback, useRef } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "store";
 import { hideModal } from "store/actions/modal";
+import { addTodo } from "store/actions/todos";
 import styled, { css } from "styled-components";
+import { createKRdate } from "utils/time";
+import { v4 as uuidv4 } from "uuid";
+
+const { addTodoSuccess } = addTodo;
 
 interface IProps {}
 
 const TodoForm: React.FC<IProps> = () => {
+  const [value, setValue] = useState("");
+
   const dispatch = useDispatch();
   const elRef = useRef<HTMLDivElement>(null);
   const { isOpen } = useSelector((state: RootState) => state.modal);
@@ -25,6 +32,30 @@ const TodoForm: React.FC<IProps> = () => {
     };
   }, [handleClick]);
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => setValue(e.target.value);
+
+  const handlekeyPress = (e: React.KeyboardEvent<HTMLFormElement>) => {
+    if (e.key === "Enter") {
+      handleSumbit(e);
+    }
+  };
+
+  const handleSumbit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!value) {
+      alert("할 일을 작성해주세요.");
+      return;
+    }
+    const todo = {
+      id: uuidv4(),
+      content: value,
+      isChecked: false,
+      createdAt: createKRdate(),
+    };
+    dispatch(addTodoSuccess(todo));
+    dispatch(hideModal());
+  };
+
   return (
     <FormWrapper ref={elRef} {...{ isOpen }}>
       <FormHedaer>
@@ -33,8 +64,8 @@ const TodoForm: React.FC<IProps> = () => {
           <i className="fas fa-times"></i>
         </Icon>
       </FormHedaer>
-      <form>
-        <Input placeholder="What's need to be done?" />
+      <form onSubmit={handleSumbit} onKeyPress={handlekeyPress}>
+        <Input onChange={handleChange} placeholder="What's need to be done?" />
         <Btn>Save</Btn>
       </form>
     </FormWrapper>
