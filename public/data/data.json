@@ -4,37 +4,37 @@
     {
       "id": "1",
       "content": "밥 먹기",
-      "isCheck": true,
+      "isChecked": true,
       "createdAt": "2021-05-26T11:51:05.097Z"
     },
     {
       "id": "2",
       "content": "씻기",
-      "isCheck": true,
+      "isChecked": true,
       "createdAt": "2021-05-15T16:15:25.729Z"
     },
     {
       "id": "3",
       "content": "게임하기",
-      "isCheck": false,
+      "isChecked": false,
       "createdAt": "2021-05-30T16:15:25.729Z"
     },
     {
       "id": "4",
       "content": "공부하기",
-      "isCheck": true,
+      "isChecked": true,
       "createdAt": "2021-06-25T16:15:25.729Z"
     },
     {
       "id": "5",
       "content": "영화보기",
-      "isCheck": false,
+      "isChecked": false,
       "createdAt": "2021-07-20T16:15:25.729Z"
     },
     {
       "id": "6",
       "content": "산책하기",
-      "isCheck": true,
+      "isChecked": true,
       "createdAt": "2021-08-29T16:15:25.729Z"
     }
   ]
