@@ -8,10 +8,6 @@ const GlobalStyles = createGlobalStyle`
         box-sizing: border-box;
     }
 
-    body {
-        background: #e2e2e2;
-    }
-
     @font-face {
     font-family: 'NanumSquareRound';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
@@ -25,10 +21,16 @@ const GlobalStyles = createGlobalStyle`
         font-style: normal;
     }
     body{
+        background: #e2e2e2;
         font-family: 'NanumSquareRound', sans-serif;
         &::-webkit-scrollbar {
             display: none; /* Chrome, Safari, Opera*/
         }
+    }
+
+    button {
+        border: none;
+        background: transparent;
     }
 `;
 
