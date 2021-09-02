@@ -12,7 +12,7 @@ import {
   EDIT_TODO_FAILED,
 } from "./types";
 import { ITodos, ITodo } from "types";
-
+// todo 목록을 가져오는 상태 변화 action 생성자 함수
 export const getTodos = {
   getTodosRequest() {
     return { type: TODOS_FETCH_REQUEST };
@@ -27,7 +27,7 @@ export const getTodos = {
     };
   },
 };
-
+// todo를 추가하는 상태 변화 action 생성자 함수
 export const addTodo = {
   addTodoSuccess(todo: ITodo) {
     return { type: ADD_TODO_SUCCEED, payload: todo };
@@ -36,7 +36,7 @@ export const addTodo = {
     return { type: ADD_TODO_FAILED, payload: error };
   },
 };
-
+// todo 체크박스를 토글하는 상태 변화 action 생성자 함수
 export const toggleTodoCheck = {
   toggleTodoCheckSuccess(id: string) {
     return { type: TOGGLE_TODO_CHECK_SUCCEED, payload: id };
@@ -45,7 +45,7 @@ export const toggleTodoCheck = {
     return { type: TOGGLE_TODO_CHECK_FAILED, payload: error };
   },
 };
-
+// todo를 삭제하는 상태 변화 action 생성자 함수
 export const removeTodo = {
   removeTodoSuccess(id: string) {
     return { type: REMOVE_TODO_SUCCEED, payload: id };
@@ -54,7 +54,7 @@ export const removeTodo = {
     return { type: REMOVE_TODO_FAILED, payload: error };
   },
 };
-
+// todo content를 수정하는 상태 변화 action 생성자 함수
 export const editTodo = {
   editTodoSuccess(id: string, text: string) {
     return { type: EDIT_TODO_SUCCEED, payload: { id, text } };

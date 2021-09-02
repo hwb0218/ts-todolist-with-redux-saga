@@ -1,5 +1,5 @@
 import { SHOW_MODAL, HIDE_MODAL } from "./types";
-
+// modal 관련 상태 변화 action 생성자 함수
 export const showModal = () => {
   return {
     type: SHOW_MODAL,
