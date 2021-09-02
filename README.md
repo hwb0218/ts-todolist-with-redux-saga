@@ -17,6 +17,7 @@ __`서버 주소를 이용하여 TODO list 구현 `__
 2. Postman을 활용한 mock server 생성, API 호출
 3. redux-saga 미들웨어 활용 및 비동기처리
 4. redux 전역 상태 관리
+5. uuid를 사용한 유니크 id 부여
 
 </br>
 
