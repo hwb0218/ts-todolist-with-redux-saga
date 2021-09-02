@@ -6,7 +6,7 @@ export interface IResponse {
   message: string;
 }
 // api reqeust
-const fetchTemplate = async (method: string, reqData?: any, id: number = 0) => {
+const fetchTemplate = async (method: string, reqData?: object, id: number = 0) => {
   const body = JSON.stringify(reqData);
   const res = await fetch(`${BASE_URL}/${URL_PATH}/${id}`, { method, headers, body });
   const data = await res.json();
